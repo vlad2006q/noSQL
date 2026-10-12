@@ -1,0 +1,30 @@
+HSET book:b101 title "Clean Code" author "Robert Martin" category "Programming" year "2008"
+HSET book:b102 title "ффф Patterns" author "GoF" category "Architecture" year "1994"
+HSET reader:r401 name "иии" email "иии@atu.kz" status "active"
+HSET reader:r402 name "ааа" email "ааа.kz" status "active"
+
+EXPIRE book:b101 3600
+EXPIRE book:b102 3600
+
+INCR stats:total_loans
+INCR stats:total_loans
+
+LPUSH reader:r401:loans "book:b101"
+LPUSH reader:r401:loans "book:b105"
+
+SADD category:Programming "book:b101" "book:b103"
+SADD category:Architecture "book:b102"
+
+ZADD library:duedates 1759740000 "book:b101"
+ZADD library:duedates 1759826400 "book:b102"
+
+HGETALL book:b101
+HGETALL reader:r401
+GET stats:total_loans
+LRANGE reader:r401:loans 0 -1
+SMEMBERS category:Programming
+ZRANGE library:duedates 0 -1 WITHSCORES
+
+TTL book:b101
+DEL book:b101
+EXISTS book:b101
