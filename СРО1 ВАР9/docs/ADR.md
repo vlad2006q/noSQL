@@ -1,0 +1,1 @@
+Redis selected due to Hash and TTL support.
