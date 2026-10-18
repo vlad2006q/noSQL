@@ -1,0 +1,1 @@
+ADR: Redis selected because TTL, Hash and high performance fit session storage. Alternatives: MongoDB, PostgreSQL.
