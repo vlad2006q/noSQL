@@ -1,0 +1,7 @@
+flowchart LR
+    U[Пользователь / CLI] --> A[Python приложение]
+    A --> S[SessionStore]
+    S -->|HSET / HGETALL| R[(Redis Hash session:<id>)]
+    S -->|EXPIRE / TTL| T[Механизм истечения TTL]
+    T --> R
+    S -->|DEL| R
