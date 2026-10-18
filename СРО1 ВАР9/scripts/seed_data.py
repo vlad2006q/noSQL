@@ -1,1 +1,0 @@
-print("Seed 30 sessions")
